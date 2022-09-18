@@ -10,14 +10,51 @@
 // При нажатии на Х - span с текстом и кнопка X должны быть удалены. Значение, введенное в поле ввода, обнуляется.
 // Если пользователь ввел число меньше 0 - при потере фокуса подсвечивать поле ввода красной рамкой, под полем выводить фразу - Please enter correct price. span со значением при этом не создается.
 
+const div = document.getElementById('div');
 const input = document.getElementById("price");
 input.value = "Price";
-// input.addEventListener("mouseout", () => {
-//   input.style.border = "1px solid black";
-// });
-input.addEventListener("mouseup", () => {
-  input.style.border = "3px solid green";
+const span = document.getElementById("span");
+const button = document.getElementById("reset");
+div.addEventListener("mouseover", () => {
+  input.style.border = "2px solid green";
+  input.style.color = "black";
+  // span.style.color = 'transparent';
 });
+
+div.addEventListener("mouseout", () => {
+  input.style.border = "2px solid black";
+  input.style.color = "green";
+  span.style.color = 'black';
+  span.innerText = `Your price:` + input.value;
+  button.style.background = 'lightgrey';
+  button.style.color = 'black';
+  button.style.border = '1px solid black';
+});
+
+// button.addEventListener('onclick', () => {
+//   span.style.color = 'transparent';
+//   button.style.color = 'transparent';
+// })
+
+
+  
+
+
+
+
+// input.addEventListener("mouseout", () => {
+  
+// }
+// span = `Текущая цена: ${input.value}`
+// input.insertAdjacentHTML("beforebegin", span);
+
+// let button = document.getElementById("reset");
+// button.setAttribute('type', 'reset');
+// button.after(input);
+
+// button.value = 'X';
+// input.insertAdjacentHTML('beforebegin', button);
+// let atribute = button.setAttribute('type', 'reset');
 
 // Браузерні події
 
