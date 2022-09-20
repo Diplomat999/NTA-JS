@@ -11,29 +11,27 @@
             margin: 0px 0px 0px 30px;
             padding: 10px;
             box-sizing: border-box;
-            border: 2px solid black;
             display: block;
         }
 
-        #span {
+        .span {
             margin: 0px 0px 0px 30px;
             color: transparent;
         }
 
         #reset {
-            background: transparent;
-            color: transparent;
-            border: 1px solid transparent;
+            border: 1px solid black;
+            visibility: hidden;
         }
     </style>
 </head>
 
 <body>
-    <div id="div">
-        <span id="span">Your price:</span>
+    <!-- <div id="div"> -->
+        <span id="span" class="span">Your price:</span>
         <button id="reset">X</button>
-        <input type="text" id="price">
-    </div>
+        <input type="text" id="price" placeholder="Price">
+    <!-- </div> -->
     <script src="./app.js"></script>
 </body>
 
