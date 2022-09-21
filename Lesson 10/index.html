@@ -8,14 +8,13 @@
     <title>Document</title>
     <style>
         #price {
-            margin: 0px 0px 0px 30px;
             padding: 10px;
             box-sizing: border-box;
             display: block;
+            border: 2px solid black;
         }
 
         .span {
-            margin: 0px 0px 0px 30px;
             color: transparent;
         }
 
@@ -23,15 +22,19 @@
             border: 1px solid black;
             visibility: hidden;
         }
+        #div {
+            padding: 30px;
+        }
     </style>
 </head>
 
 <body>
-    <!-- <div id="div"> -->
+    <div id="div">
         <span id="span" class="span">Your price:</span>
         <button id="reset">X</button>
         <input type="text" id="price" placeholder="Price">
-    <!-- </div> -->
+        <span class="correct"></span>
+    </div>
     <script src="./app.js"></script>
 </body>
 

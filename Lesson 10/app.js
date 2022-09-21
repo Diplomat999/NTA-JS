@@ -10,27 +10,35 @@
 // При нажатии на Х - span с текстом и кнопка X должны быть удалены. Значение, введенное в поле ввода, обнуляется.
 // Если пользователь ввел число меньше 0 - при потере фокуса подсвечивать поле ввода красной рамкой, под полем выводить фразу - Please enter correct price. span со значением при этом не создается.
 
-const input = document.getElementById("price"),
+const moneyInput = document.getElementById("price"),
   span = document.getElementById("span"),
-  button = document.getElementById("reset");
-  newPrise = 0;
+  button = document.getElementById("reset"),
+  correctPrice = document.querySelector('.correct');
+let newMoneyInput = 0;
 
-input.addEventListener("focus", () => {
-  input.style.border = "2px green solid";
-  input.style.color = "black";
-  span.style.color = "transparent";
+moneyInput.addEventListener("focus", () => {
+  moneyInput.style.border = "2px solid green";
+  moneyInput.style.color = "black";
 });
 
-input.addEventListener("blur", () => {
-  input.style.color = "green";
-  input.style.fontSize = "700";
-  span.style.color = "black";
-  span.innerText = `Your price:` + input.value;
-  button.style.visibility = 'visible';
-});
+function getPrice() {
+  newMoneyInput = Number(moneyInput.value);
+  if (newMoneyInput < 0 || isNaN(newMoneyInput)) {
+    moneyInput.style.border = "2px solid red";
+    correctPrice.textContent = "Please enter correct price";
+  } else {
+    moneyInput.style.color = "green";
+    span.style.color = "black";
+    span.textContent = `Your price: ` + moneyInput.value;
+    button.style.visibility = "visible";
+    correctPrice.textContent = "";
+  }
+}
+
+moneyInput.addEventListener("blur", getPrice);
 
 button.addEventListener("click", () => {
   span.style.color = "transparent";
   button.style.visibility = "hidden";
-  input.value = '';
+  moneyInput.value = "";
 });
