@@ -6,13 +6,43 @@
 // Разметку можно менять, добавлять нужные классы, id, атрибуты, теги.
 // Нужно предусмотреть, что текст на вкладках может меняться, и что вкладки могут добавляться и удаляться. При этом нужно, чтобы функция, написанная в JavaScript, из-за таких правок не переставала работать.
 
-const titleTabs = document.querySelectorAll(".tabs .tabs-title"),
-  textTabs = document.querySelectorAll('.tabs-text')
+const tabsBtns = document.querySelectorAll(".tabs-title"),
+  tabsText = document.querySelectorAll(".tabs-text");
 
-titleTabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    tab.classList.toggle("active");
-    
-    // tab.classList.remove('active');
+console.log("tabsBtns: ", tabsBtns);
+console.log("tabsText: ", tabsText);
+
+tabsBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("active");
+    showTab();
   });
 });
+
+function showTab() {
+  for (let i = 0; i <= tabsBtns.length; i++) {
+    for (let j = 0; j < tabsText.length; j++) {
+      if (tabsBtns[i].style.backgroundColor == "#937341;") {
+        tabsText[j].classList.toggle("show");
+      }
+    }
+  }
+}
+
+// tabsBtns.forEach((btn) => {
+//   btn.addEventListener("click", () => {
+//     btn.classList.toggle("active");
+//     for (let i = 0; i < tabsBtns.length; i++){
+//           for (let j = 0; j < tabsText.length; j++) {
+//             if(tabsBtns[i].style.backgroundColor == '#937341;') {
+//               tabsText[j].classList.toggle('show');
+//             }
+//           }
+//         }
+//   }
+
+// )});
+
+//     tabsText.forEach((tab) => {
+//   tab.classList.toggle('show');
+// })
