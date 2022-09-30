@@ -8,65 +8,41 @@
 
 const tabsBtns = document.querySelectorAll(".tabs-title"),
   tabsText = document.querySelectorAll(".tabs-text");
-const btns = Array.from(tabsBtns);
-const tabs = Array.from(tabsText);
 
-console.log(tabsBtns);
-console.log(tabsText);
-
-function getTab() {
-  const buttons = btns.map(function (index) {
-    return index;
-  });
-  const content = tabs.map(function (index) {
-    return index;
-  });
-  for(let i=0; i<buttons.length; i++) {
-    const button = buttons[i];
-    for(let j=0; j<content.length; j++) {
-      const cont = content[j];
-    if(button === cont) {
-      cont.classList.toggle('show')
-    }else{
-      cont.classList.toggle('show')
-    }
-  }
-    
-  }
-}
+console.log("tabsBtns: ", tabsBtns);
+console.log("tabsText: ", tabsText);
 
 tabsBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     btn.classList.toggle("active");
-    getTab();
-    
-    // for (let i = 0; i < tabsBtns.length; i++) {
-    //   let btntItem = tabsBtns[i];
-    
-    // for (let j = 0; j < tabsText.length; j++) {
-    //   let textItem = tabsText[j];
-    
-    // if (btntItem === textItem) {
-    //   tabsText[j].classList.toggle("show");
-    // } else {
-    //   tabsText[j].classList.toggle("show");
-    // }}
-  // }
-  // });
-})});
+    showTab();
+  });
+});
 
-// function clickBtn () {
-//   if(btn.classList.contains('active')){
-//     btn.classList.remove('active');
-// }else {
-//     btn.classList.add('active');
-// }
-// }
+function showTab() {
+  for (let i = 0; i <= tabsBtns.length; i++) {
+    for (let j = 0; j < tabsText.length; j++) {
+      if (tabsBtns[i].style.backgroundColor == "#937341;") {
+        tabsText[j].classList.toggle("show");
+      }
+    }
+  }
+}
 
-// function showTab() {
-//   for (let item of tabsBtns) {
-//     console.log(item[1])
+// tabsBtns.forEach((btn) => {
+//   btn.addEventListener("click", () => {
+//     btn.classList.toggle("active");
+//     for (let i = 0; i < tabsBtns.length; i++){
+//           for (let j = 0; j < tabsText.length; j++) {
+//             if(tabsBtns[i].style.backgroundColor == '#937341;') {
+//               tabsText[j].classList.toggle('show');
+//             }
+//           }
+//         }
 //   }
-// }
 
-// showTab();
+// )});
+
+//     tabsText.forEach((tab) => {
+//   tab.classList.toggle('show');
+// })
