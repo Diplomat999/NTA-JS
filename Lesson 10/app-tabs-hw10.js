@@ -6,43 +6,28 @@
 // Разметку можно менять, добавлять нужные классы, id, атрибуты, теги.
 // Нужно предусмотреть, что текст на вкладках может меняться, и что вкладки могут добавляться и удаляться. При этом нужно, чтобы функция, написанная в JavaScript, из-за таких правок не переставала работать.
 
-const tabsBtns = document.querySelectorAll(".tabs-title"),
-  tabsText = document.querySelectorAll(".tabs-text");
-
-console.log("tabsBtns: ", tabsBtns);
-console.log("tabsText: ", tabsText);
-
-tabsBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    btn.classList.toggle("active");
-    showTab();
-  });
-});
-
 function showTab() {
-  for (let i = 0; i <= tabsBtns.length; i++) {
-    for (let j = 0; j < tabsText.length; j++) {
-      if (tabsBtns[i].style.backgroundColor == "#937341;") {
-        tabsText[j].classList.toggle("show");
-      }
-    }
+  let tabsNav = document.querySelectorAll(".tabs-title"),
+    tabsContent = document.querySelectorAll(".tabs-text"),
+    tabName;
+
+  tabsNav.forEach((item) => {
+    item.addEventListener("click", selectTabsNav);
+  });
+
+  function selectTabsNav() {
+    tabsNav.forEach((item) => {
+      item.classList.remove("active");
+    });
+    this.classList.add("active");
+    tabName = this.getAttribute("name");
+    selectTabText(tabName);
   }
-}
+  function selectTabText(tabName) {
+    tabsContent.forEach((item) => {
+      item.classList.contains(tabName) ? item.classList.add("show") : item.classList.remove("show");
+    });
+  }
+};
 
-// tabsBtns.forEach((btn) => {
-//   btn.addEventListener("click", () => {
-//     btn.classList.toggle("active");
-//     for (let i = 0; i < tabsBtns.length; i++){
-//           for (let j = 0; j < tabsText.length; j++) {
-//             if(tabsBtns[i].style.backgroundColor == '#937341;') {
-//               tabsText[j].classList.toggle('show');
-//             }
-//           }
-//         }
-//   }
-
-// )});
-
-//     tabsText.forEach((tab) => {
-//   tab.classList.toggle('show');
-// })
+showTab();
