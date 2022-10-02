@@ -11,30 +11,72 @@
 // После нажатия на кнопку страница не должна перезагружаться;
 // Можно менять разметку, добавлять атрибуты, теги, id, классы и так далее.
 
-const togglePassword = document.getElementById("show-password");
+// Перший інпут
+const togglePassword = document.getElementById("show-password"),
+  hidePassword = document.querySelector(".hide-password"),
+  password = document.getElementById("password");
+
+hidePassword.style.display = "none";
 
 function showOrHidePassword() {
-  const password = document.getElementById("password");
   if (password.type === "password") {
     password.type = "text";
+    togglePassword.style.display = "none";
+    hidePassword.style.display = "inline-block";
   } else {
     password.type = "password";
+    togglePassword.style.display = "inline-block";
+    hidePassword.style.display = "none";
   }
 }
 
 togglePassword.addEventListener("click", showOrHidePassword);
+hidePassword.addEventListener("click", showOrHidePassword);
 
-const togglePasswordConfirm = document.getElementById(
-  "show-password-confirmation"
-);
+// Другий інпут
+const passwordConfirm = document.getElementById("password-confirmation"),
+  togglePasswordConfirm = document.getElementById("show-password-confirmation"),
+  hidePasswordConfirm = document.querySelector(".hide-password-confirmation");
 
+hidePasswordConfirm.style.display = "none";
 function showOrHidePasswordConfirm() {
-  const passwordConfirm = document.getElementById("password-confirmation");
   if (passwordConfirm.type === "password") {
     passwordConfirm.type = "text";
+    togglePasswordConfirm.style.display = "none";
+    hidePasswordConfirm.style.display = "inline-block";
   } else {
     passwordConfirm.type = "password";
+    togglePasswordConfirm.style.display = "inline-block";
+    hidePasswordConfirm.style.display = "none";
   }
 }
 
 togglePasswordConfirm.addEventListener("click", showOrHidePasswordConfirm);
+hidePasswordConfirm.addEventListener("click", showOrHidePasswordConfirm);
+
+// порівняння паролів
+const button = document.querySelector(".btn"),
+  errorPassword = document.querySelector(".error-password");
+errorPassword.style.color = "transparent";
+
+function passwordCheck() {
+  if (password.value == passwordConfirm.value) {
+    if (password.value.length < 3) {
+      password.value = 'Enter 3 or more symbols';
+      password.type = "text";
+      togglePassword.style.display = "none";
+    } else {
+      alert("You are welcome");
+      password.value = "";
+      passwordConfirm.value = "";
+      errorPassword.style.color = "transparent";
+    togglePassword.style.display = 'inline-block';
+    }
+  } else {
+    password.inse
+    passwordConfirm.value = "";
+    errorPassword.style.color = "red";
+  }
+}
+
+button.addEventListener("click", passwordCheck);
