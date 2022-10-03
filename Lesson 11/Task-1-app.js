@@ -39,6 +39,7 @@ const passwordConfirm = document.getElementById("password-confirmation"),
   hidePasswordConfirm = document.querySelector(".hide-password-confirmation");
 
 hidePasswordConfirm.style.display = "none";
+
 function showOrHidePasswordConfirm() {
   if (passwordConfirm.type === "password") {
     passwordConfirm.type = "text";
@@ -62,7 +63,7 @@ errorPassword.style.color = "transparent";
 function passwordCheck() {
   if (password.value == passwordConfirm.value) {
     if (password.value.length < 3) {
-      password.value = 'Enter 3 or more symbols';
+      password.value = "Enter 3 or more symbols";
       password.type = "text";
       togglePassword.style.display = "none";
     } else {
@@ -70,10 +71,9 @@ function passwordCheck() {
       password.value = "";
       passwordConfirm.value = "";
       errorPassword.style.color = "transparent";
-    togglePassword.style.display = 'inline-block';
+      togglePassword.style.display = "inline-block";
     }
   } else {
-    password.inse
     passwordConfirm.value = "";
     errorPassword.style.color = "red";
   }
