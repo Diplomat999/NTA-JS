@@ -65,13 +65,11 @@ function passwordCheck() {
     if (password.value.length < 3) {
       password.value = "Enter 3 or more symbols";
       password.type = "text";
-      togglePassword.style.display = "none";
     } else {
       alert("You are welcome");
       password.value = "";
       passwordConfirm.value = "";
       errorPassword.style.color = "transparent";
-      togglePassword.style.display = "inline-block";
     }
   } else {
     passwordConfirm.value = "";
