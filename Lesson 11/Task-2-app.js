@@ -10,7 +10,7 @@ const buttons = document.querySelectorAll('.btn');
 
 buttons.forEach((btn) => {
     btn.addEventListener ('keydown', (e)=>{
-    if (e.key == btn.value) {
+    if (e.key) {
         btn.style.backgroundColor = 'blue';
     }})
 })
