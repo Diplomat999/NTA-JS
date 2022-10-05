@@ -23,6 +23,7 @@ function showTab() {
     tabName = this.getAttribute("name");
     selectTabText(tabName);
   }
+  
   function selectTabText(tabName) {
     tabsContent.forEach((item) => {
       item.classList.contains(tabName) ? item.classList.add("show") : item.classList.remove("show");
